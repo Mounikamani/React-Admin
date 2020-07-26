@@ -1,51 +1,79 @@
-import React from 'react'
-import StepProgressBar from 'react-step-progress';
-import 'react-step-progress/dist/index.css';
-import Form1 from './FormPage1';
+import 'primeicons/primeicons.css';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.css';
+import 'primeflex/primeflex.css';
+import ReactDOM from 'react-dom';
 
-const step1Content =<h1>Step1</h1>;
-const step2Content = <h1>Step 2</h1>;
-const step3Content = <h1>Step 3</h1>;
-const step4Content = <h1>Step 4</h1>;
-
+import React, { Component } from 'react';
+import {Steps} from 'primereact/steps';
 
 
-function Stepbar() {
-  return (
+export class StepBar extends Component {
 
-    <div class="app">
-        
-      <StepProgressBar
-        startingStep={0}
-       
-        steps={[
-          {
-            label: 'Step 1',
-            name: 'step 1',
-            content: step1Content
-          },
-          {
-            label: 'Step 2',
-            name: 'step 2',
-            content: step2Content,
-           
-          },
-          {
-            label: 'Step 3',
-            name: 'step 3',
-            content: step3Content,
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeIndex: 0,
           
-          },
+        };
+
+        this.items = [
           {
-            label: 'Step 4',
-            name: 'step 4',
-            content: step4Content
+            label:'1',
+            command: (event) => {
+             
+            }
+        },
+        {
+            label: '2',
+            command: (event) => {
+                
+            }
+        },
+
+        {
+            label: '3',
+            command: (event) => {
+               
+            }
+        },
+        {
+            label: '4',
+            command: (event) => {
+                
+            }
+        },
+
+        {
+          label: '5',
+          command: (event) => {
+             
           }
-        ]}
-      />
-    </div>
-  );
+      },
+      {
+        label: '6',
+        command: (event) => {
+           
+        }
+    },
+    {
+      label: '7',
+      command: (event) => {
+         
+      }
+            }
+        ];
+    }
+
+    render() {
+        return (
+            <div>
+                 <h5>Step 1 of 7</h5>
+                <Steps model={this.items} activeIndex={this.state.activeIndex} readOnly={true} />
+
+            </div>
+        );
+    }
 }
 
-export default Stepbar;
-
+export default StepBar; 
