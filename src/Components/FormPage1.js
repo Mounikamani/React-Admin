@@ -12,12 +12,21 @@ import { Button } from 'primereact/button';
 import {Link} from 'react-router-dom'
 import StepBar from './StepProgressBar';
 import StepProgressBar from 'react-step-progress';
+import 'primeicons/primeicons.css';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.css';
+import 'primeflex/primeflex.css';
+import ReactDOM from 'react-dom';
+import  { useState, useRef } from 'react';
+import {Steps} from 'primereact/steps';
+import {Growl} from 'primereact/growl';
 
 
 class Form1 extends Component{
   constructor(props) {
     super(props);
     this.state = {
+    
       First_name:"",
       Middle_name:"",
       Gender:"",
@@ -36,33 +45,13 @@ class Form1 extends Component{
       National_identifier:"",
     };
 
-let data = {
-  First_name:this.state.First_name,
-  Middle_name:this.state.Middle_name,
-  Gender:this.state.Gender,
-  Nationality:this.state.Nationality,
-  Marital_status:this.state.Marital_status,
-  Religion:this.state.Religion,
-  Last_name:this.state.Last_name,
-  Dob:this.state.Dob,
-  Blood_group:this.state.Blood_group,
-  Home_language:this.state.Home_language,
-  Mother_name:this.state.Mother_name,
-  Place_of_Birth:this.state.Place_of_Birth,
-  Grandfather_name:this.state.Grandfather_name,
-  Country_of_birth:this.state.Country_of_birth,
-  Other_language:this.state.Other_language,
-  National_identifier:this.state.National_identifier
-}
-// this.props.myData(data);
-
   }
-
     render(){
         return(
 <div className="wrapper">
   <div className="container-fluid">
   <HeaderPage />
+ 
     {/* Page-Title */}
     <div className="row">
       <div className="col-sm-12">
@@ -77,7 +66,7 @@ let data = {
       <div className="col-12">
         <div className="card m-b-30">
           <div className="card-body">
-          <h3 style={{color:'red'}}>Step 1 of 7</h3> <br></br>
+      <StepBar/>
             <h4 style={{textAlign: 'left'}}>PERSONAL PARTICULARS</h4>
             <br />
             <div>
@@ -86,7 +75,7 @@ let data = {
                   <div className="p-20">
                     <form action="#">
                    
-                      <div className="form-group">
+                    <div className="form-group">
                         <label className = "float-left">First Name*</label>
                         
                   <InputText value={this.state.First_name} onChange={(e) => this.setState({First_name: e.target.value})}
