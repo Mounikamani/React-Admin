@@ -11,12 +11,14 @@ import 'primeflex/primeflex.css';
 // import Card from 'primereact/card';
 import { Button } from 'primereact/button';
 import {Link} from 'react-router-dom';
-
+import {Steps} from 'primereact/steps';
+import {Growl} from 'primereact/growl';
 
 class Form2 extends Component {
   constructor() {
     super();
     this.state = {
+      activeIndex: 1,
       Issuing_country: "",
       Issued_by: "",
       passport_expiry_date: "",
@@ -36,6 +38,53 @@ class Form2 extends Component {
       Vehicle_type: "",
       Expiry_date: "",
     }
+
+
+    this.items = [
+      {
+        label: '1',
+        command: (event) => {
+         
+        }
+    },
+
+    {
+        label: '2',
+        command: (event) => {
+            
+        }
+    },
+    {
+        label: '3',
+        command: (event) => {
+           
+        }
+    },
+    {
+        label: '4',
+        command: (event) => {
+            
+        }
+    },
+    {
+      label: '5',
+      command: (event) => {
+         
+      }
+  },
+  {
+    label: '6',
+    command: (event) => {
+       
+    }
+},
+{
+  label: '7',
+  command: (event) => {
+     
+  }
+        }
+    ];
 
 
   }
@@ -58,7 +107,9 @@ class Form2 extends Component {
             <div className="col-12">
               <div className="card m-b-30">
                 <div className="card-body">
-                <h3 style={{color:'red'}}>Step 2 of 7</h3> <br></br>
+                  <h5>Step 2 of 7</h5>
+                <Steps model={this.items} activeIndex={this.state.activeIndex} readOnly={false} />
+                
                   <h4 style={{ textAlign: 'left' }}>PASSPORT </h4>
                   <br />
                   <div className="row">
