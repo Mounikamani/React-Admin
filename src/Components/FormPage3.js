@@ -1,15 +1,61 @@
 import React, { useState, Fragment } from "react";
 import ReactDOM from "react-dom";
 import HeaderPage from './HeaderPage';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {Steps} from 'primereact/steps';
 
 
 
-const Form5 = () => {
+const Form3 = () => {
   const [inputFields, setInputFields] = useState([
     { name: '', age: '', relation: '', citizenship:'' }
+    
   ]);
-
+  const [activeIndex, setActiveIndex] = useState(2);
+  const items = [
+    {
+      label: '',
+      command: (event) => {
+       
+      }
+  },
+  {
+      label: '2',
+      command: (event) => {
+          
+      }
+  },
+  {
+      label: '3',
+      command: (event) => {
+         
+      }
+  },
+  {
+      label: '4',
+      command: (event) => {
+          
+      }
+  },
+  {
+    label: '5',
+    command: (event) => {
+       
+    }
+},
+{
+  label: '6',
+  command: (event) => {
+     
+  }
+},
+{
+label: '7',
+command: (event) => {
+   
+}
+    }
+];
   const handleAddFields = () => {
     const values = [...inputFields];
     values.push({ name: '', age: '', relation: '', citizenship:'' });
@@ -33,6 +79,7 @@ const Form5 = () => {
     }
 
     setInputFields(values);
+
   };
 
   const handleSubmit = e => {
@@ -59,7 +106,9 @@ const Form5 = () => {
             <div className="col-12">
               <div className="card m-b-30">
                 <div className="card-body">
-                <h3 style={{color:'red'}}>Step 3 of 7</h3> <br></br>
+                  <h5>Step 3 of 7</h5>
+                <Steps model={items} activeIndex={activeIndex} readOnly={false} />
+
                   <h3>Family Sponsorship Details</h3>
                   <br></br>
                   <button
@@ -174,5 +223,7 @@ const Form5 = () => {
     </>
   );
 };
+  
 
-export default Form5;
+
+export default Form3;
